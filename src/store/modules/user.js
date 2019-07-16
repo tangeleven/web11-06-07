@@ -19,15 +19,18 @@ const mutations = {
 const actions = {
     login({ commit }, userInfo) {
         const { username } = userInfo;
+        debugger
         return new Promise((resolve, reject) => {
             setTimeout(() => {
                 if (username === 'admin' || username === 'jerry') {
+                    debugger
                     commit('SET_TOKEN', username)
                     setToken(username)
                     resolve();
                 } else {
                     reject('用户名, 密码错误')
                 }
+                debugger
             }, 1000)
         })
     },

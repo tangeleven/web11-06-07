@@ -42,7 +42,7 @@ export const asyncRoutes = [
                 meta: {
                     title: "About",
                     icon: 'qq',
-                    roles: ['admin', 'editor']
+                    roles: ['admin']
                 }
             }
         ]
