@@ -15,9 +15,13 @@ export function filterAsyncRoutes(routes, roles) {
     routes.forEach(route => {
         const tmp = { ...route }
         if (hasPermission(roles, tmp)) {
-
+            tmp.children = filterAsyncRoutes(tmp.children, roles);
         }
+
+        res.push(tmp);
     })
+
+    return res;
 }
 
 
@@ -44,6 +48,7 @@ const actions = {
             } else {
                 accessedRoutes = filterAsyncRoutes(asyncRoutes, roles);
             }
+  
             commit('SET_ROUTES', accessedRoutes);
             resolve(accessedRoutes);
         })

@@ -21,6 +21,7 @@ router.beforeEach(async (to, from, next) => {
 
             if (hasRoles) {
                 next()
+              
             } else {
                 try {
                     const { roles } = await store.dispatch('user/getInfo')
@@ -29,17 +30,21 @@ router.beforeEach(async (to, from, next) => {
                     router.addRoutes(accessRoutes)
 
                     next({...to, replace: true})
+                
                 } catch (error) {
                     await store.dispatch('user/resetToken')
                     Message.error(error || 'Has Error')
+                    
                     next(`/login?redirect=${to.path}`)
                 }
             }
         }
     } else {
         if (whiteList.indexOf(to.path) !== -1) {
+            
             next()
         } else {
+            
             next(`/login?redirect=${to.path}`)
         }
     }
