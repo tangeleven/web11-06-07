@@ -27,3 +27,9 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+### vue项目最佳实践实现步骤
+1. npm i svg-sprite-loader -D   安装 svg loader
+
+2. npm i js-cookie -S
