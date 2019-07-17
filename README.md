@@ -33,3 +33,6 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 1. npm i svg-sprite-loader -D   安装 svg loader
 
 2. npm i js-cookie -S
+
+### 新知识点
+1. 函数型组件，render里不能使用this，但是它会接收一个 context，通过context来访问 props
