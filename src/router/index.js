@@ -48,7 +48,8 @@ export const asyncRoutes = [
         redirect: '/about/index',
         meta: {
             title: "关于我们",
-            icon: 'qq'
+            icon: 'qq',
+            roles: ['admin']
         },
         children: [
             {

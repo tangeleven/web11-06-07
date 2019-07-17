@@ -2,7 +2,7 @@
    <div>
        <el-scrollbar wrap-class="scrollbar-wrapper">
            <el-menu
-               
+                :default-active="activeMenu"
                 :background-color="variables.menuBg"
                 :text-color="variables.menuText"
                 :unique-opened="false"
@@ -47,6 +47,14 @@ export default {
     },
     computed: {
         ...mapGetters(["permission_routes"]),
+        activeMenu() {
+            const route = this.$route;
+            const { meta, path } = route;
+            if (meta.activeMenu) {
+                return meta.activeMenu;
+            }
+            return path;
+        },
         variables() {
             return {
                 menuText: "#bfcbd9",
@@ -56,7 +64,7 @@ export default {
         }
     },
     created() {
-        console.log(this.permission_routes);
+        // console.log(this.permission_routes);
         
     }
 }
