@@ -7,6 +7,9 @@ import './plugins/element.js'
 import store from './store/index'
 
 import './permission'
+import vPermission from './directive/permission'
+
+Vue.directive('permission', vPermission)
 
 Vue.config.productionTip = false
 

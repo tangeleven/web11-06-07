@@ -36,3 +36,6 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### 新知识点
 1. 函数型组件，render里不能使用this，但是它会接收一个 context，通过context来访问 props
+
+### 第7节课
+1. 自定义指令

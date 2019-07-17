@@ -61,7 +61,7 @@ export default {
     },
     methods: {
         hasOneShowingChild(children = [], parent) {
-            debugger
+            // debugger
             const showingChildren = children.filter(item => {
                 if (item.hidden) {
                     return false
@@ -70,7 +70,7 @@ export default {
                     return true
                 }
             })
-            debugger
+            // debugger
             if (showingChildren.length === 1) {
                 return true;
             }
@@ -83,7 +83,7 @@ export default {
             return false;
         },
         resolvePath(routePath) {
-            debugger
+            // debugger
             return path.resolve(this.basePath, routePath)
         }
     }
