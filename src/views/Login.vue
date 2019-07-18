@@ -17,11 +17,11 @@ export default {
     },
     methods: {
         login() {
-            
+            debugger
             this.$store
                 .dispatch("user/login", {username: this.username})
                 .then(() => {
-             
+                    debugger
                     this.$router.push({
                         path: this.$route.query.redirect || '/'
                     })

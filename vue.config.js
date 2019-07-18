@@ -1,5 +1,6 @@
 
 const path = require('path');
+const bodyParser = require('body-parser')
 
 function resolve(dir) {
     return path.join(__dirname, dir)
@@ -11,7 +12,47 @@ const title = 'vue项目最佳实践';
 module.exports = {
     publicPath: 'best-practice',
     devServer: {
-        port
+        port,
+        before: app => {
+            app.use(bodyParser.json());
+            app.use(
+                bodyParser.urlencoded({
+                    extended: true
+                })
+            )
+
+            app.post('/dev-api/user/login', (req, res) => {
+                const { username } = req.body;
+                console.log(req)
+                console.log('/dev-api/user/login 1 ------------------------------------------\n')
+                console.log(req.body)
+                console.log('/dev-api/user/login 2 ------------------------------------------\n')
+                debugger
+                if (username === 'admin' || username === 'jerry') {
+                    res.json({
+                        code: 1,
+                        data: username
+                    })
+                } else {
+                    res.json({
+                        code: 10204,
+                        message: '用户名或密码错误'
+                    })
+                }
+                debugger
+            })
+
+            app.get('/dev-api/user/info', (req, res) => {
+                console.log(req)
+                console.log('/dev-api/user/info ------------------------------------------\n')
+                const roles = req.headers['x-token'] === 'admin' ? ['admin'] : ['editor'];
+                debugger
+                res.json({
+                    code: 1,
+                    data: roles
+                })
+            })
+        }
     },
     configureWebpack: {
         name: title
