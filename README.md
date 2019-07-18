@@ -40,4 +40,4 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ### 第7节课
 1. 自定义指令
 2. 问题 - 面包屑组件 和 菜单组件，router/index.js 路由配置不清晰，感觉很混乱，/about  redirect  到了 /about/index，在面包屑组件中，/about  和  /about/index 路由没有划分清楚
-3. 跨域的问题其实是浏览器的问题，是浏览器在拦截
+3. 跨域的问题其实是浏览器的问题，是浏览器在拦截。服务器是不会产生跨域。

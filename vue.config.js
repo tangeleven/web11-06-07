@@ -13,7 +13,16 @@ module.exports = {
     publicPath: 'best-practice',
     devServer: {
         port,
-        before: app => {
+        proxy:{
+            [process.env.VUE_APP_BASE_API]: {
+                target: `http://localhost:3000`,
+                changeOrigin: true,
+                pathRewrite: {
+                    ["^" + process.env.VUE_APP_BASE_API]: ""
+                }
+            }
+        },
+        /* before: app => {
             app.use(bodyParser.json());
             app.use(
                 bodyParser.urlencoded({
@@ -52,7 +61,7 @@ module.exports = {
                     data: roles
                 })
             })
-        }
+        } */
     },
     configureWebpack: {
         name: title
