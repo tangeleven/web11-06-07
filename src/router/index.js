@@ -16,7 +16,7 @@ export const constRoutes = [
         component: Layout,
         redirect: "/home",
         meta: {
-            title: "首页",
+            title: "首页1",
             icon: 'qq'
         },
         children: [
@@ -47,9 +47,8 @@ export const asyncRoutes = [
         component: Layout,
         redirect: '/about/index',
         meta: {
-            title: "关于我们",
-            icon: 'qq',
-            roles: ['admin']
+            title: "关于",
+            icon: 'qq'
         },
         children: [
             {
@@ -57,7 +56,17 @@ export const asyncRoutes = [
                 component: () => import(/* webpackChunkName: "about" */ "@/views/About.vue"),
                 name: "about",
                 meta: {
-                    title: "About",
+                    title: "用户中心",
+                    icon: 'qq',
+                    roles: ['editor']
+                }
+            },
+            {
+                path: 'bla',
+                component: () => import(/* webpackChunkName: "about" */ "@/views/About.vue"),
+                name: "about",
+                meta: {
+                    title: "关于我们",
                     icon: 'qq',
                     roles: ['admin']
                 }
